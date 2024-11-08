@@ -1,0 +1,41 @@
+using UnityEngine;
+
+public class Ghost : MonoBehaviour
+{
+    private float DeadZone = 0.1f;
+
+    [SerializeField] private float _speed;
+    private Player _player;
+    private WalkPlayer walkPlayer;
+
+    private void Awake()
+    {
+        _player = gameObject.AddComponent<Player>();
+        walkPlayer = GetComponent<WalkPlayer>();
+
+        if(_player == null)
+        {
+            Debug.LogError("Player is null");
+        }
+        if (walkPlayer == null)
+        {
+            Debug.LogError("WalkPlayer is null");
+            return;
+        }
+
+        _player.Initialization(walkPlayer);
+
+        SetValues();
+    }
+
+    private void Update()
+    {
+        _player.Walk();
+    }
+
+    private void SetValues()
+    {
+        walkPlayer.Speed = _speed;
+        walkPlayer.DeadZone = DeadZone;
+    }
+}
