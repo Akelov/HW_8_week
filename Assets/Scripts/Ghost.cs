@@ -7,14 +7,15 @@ public class Ghost : MonoBehaviour
 
     [SerializeField] private float _speed;
     private Player _player;
-    private WalkPlayer walkPlayer;
+    private WalkPlayer _walkPlayer;
+    private PullToMyselfItem _pullToMyselfItem;
 
     private void Awake()
     {
         SetComponents();
         CheckForNullReferenceException();
 
-        _player.Initialization(walkPlayer);
+        _player.Initialization(_walkPlayer, _pullToMyselfItem);
 
         SetValues();
     }
@@ -28,13 +29,8 @@ public class Ghost : MonoBehaviour
     private void SetComponents()
     {
         _player = gameObject.AddComponent<Player>();
-        walkPlayer = gameObject.AddComponent<WalkPlayer>();
-    }
-
-    private void SetValues()
-    {
-        walkPlayer.Speed = _speed;
-        walkPlayer.DeadZone = DeadZone;
+        _walkPlayer = gameObject.AddComponent<WalkPlayer>();
+        _pullToMyselfItem = gameObject.AddComponent<PullToMyselfItem>();
     }
 
     private void CheckForNullReferenceException()
@@ -43,10 +39,15 @@ public class Ghost : MonoBehaviour
         {
             Debug.LogError("Player is null");
         }
-        if (walkPlayer == null)
+        if (_walkPlayer == null)
         {
             Debug.LogError("WalkPlayer is null");
-            return;
         }
+    }
+
+    private void SetValues()
+    {
+        _walkPlayer.Speed = _speed;
+        _walkPlayer.DeadZone = DeadZone;
     }
 }
