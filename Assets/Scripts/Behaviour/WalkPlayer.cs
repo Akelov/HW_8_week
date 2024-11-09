@@ -1,19 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//класс описывающий логику хождения игрока, то есть логику управления сущщностью
 public class WalkPlayer : MonoBehaviour, IMovementBehaviour
 {
     private CharacterController _characterController;
+    private float _speed;
+    private float _deadZone;
 
-    public float DeadZone { get; set; } = 0.1f;
-    public float Speed { get; set; } = 10f;
+    public float DeadZone 
+    {
+        get => _deadZone;
+        set
+        {
+            if (value <= 0)
+            {
+                _deadZone = 0.1f;
+                Debug.LogError("DeadZone, в классе WalkPlayer, не может быть меньше либо равно нуля");
+                Debug.Log("DeadZone равна дефолтному значению - 0.1");
+            }else _deadZone = value;
+        }
+    }
+
+    public float Speed 
+    {
+        get => _speed;
+        set
+        {
+            if(value < 0)
+            {
+                _speed = 0;
+                Debug.LogError("В свойство Speed в классе WalkPlayers передается склорость меньше 0");
+                Debug.Log("В свойство переадалсь скорость со значением 0");
+            }else _speed = value;
+        }
+    } 
 
     public void Move()
     {
         Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 
-        if (input.magnitude <= DeadZone) return;
+        if (input.magnitude <= _deadZone) return;
 
         ProcesMoveTo(input);
         ProcesRotateTo(input);
@@ -32,6 +58,6 @@ public class WalkPlayer : MonoBehaviour, IMovementBehaviour
 
     private void ProcesMoveTo(Vector3 direction)
     {
-        _characterController.Move(direction.normalized * Speed * Time.deltaTime);
+        _characterController.Move(direction.normalized * _speed * Time.deltaTime);
     }
 }
