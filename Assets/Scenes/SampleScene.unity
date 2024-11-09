@@ -760,6 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
+  _healthValue: 100
 --- !u!1001 &1568243201
 PrefabInstance:
   m_ObjectHideFlags: 0

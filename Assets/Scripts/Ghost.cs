@@ -6,6 +6,9 @@ public class Ghost : MonoBehaviour
     private float DeadZone = 0.1f;
 
     [SerializeField] private float _speed;
+    [SerializeField] private int _healthValue;
+
+    private Health _health;
     private Player _player;
     private WalkPlayer _walkPlayer;
     private PullToMyselfItem _pullToMyselfItem;
@@ -15,6 +18,7 @@ public class Ghost : MonoBehaviour
         SetComponents();
         CheckForNullReferenceException();
 
+        _health = new Health(_healthValue);
         _player.Initialization(_walkPlayer, _pullToMyselfItem);
 
         SetValues();
@@ -24,6 +28,8 @@ public class Ghost : MonoBehaviour
     private void Update()
     {
         _player.Walk();
+
+        Debug.Log($"Çהמנמגüו: {_health.CurrentHealth}");
     }
 
     private void SetComponents()
@@ -36,13 +42,10 @@ public class Ghost : MonoBehaviour
     private void CheckForNullReferenceException()
     {
         if (_player == null)
-        {
             Debug.LogError("Player is null");
-        }
+
         if (_walkPlayer == null)
-        {
             Debug.LogError("WalkPlayer is null");
-        }
     }
 
     private void SetValues()
