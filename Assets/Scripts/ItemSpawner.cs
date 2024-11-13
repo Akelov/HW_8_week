@@ -4,7 +4,7 @@ public class ItemSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _itemPrefab;
 
-    private Spawning _spawning;
+    private ISpawningBehaviour _spawning;
 
     private void Awake()
     {
