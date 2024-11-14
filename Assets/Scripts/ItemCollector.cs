@@ -1,18 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemCollector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private Item _item;
+    [SerializeField] private Transform _itemHolderPoint;
+
+    private void OnTriggerEnter(Collider other)
+    { 
+        Item item = other.GetComponent<Item>();
+        if(item != null)
+        {
+            if(_item == null)
+            {
+                _item = item;
+                _item.transform.SetParent(_itemHolderPoint);
+                _item.transform.localPosition = Vector3.zero;
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if(_item != null)
+            {
+                Destroy(_item);
+                _item = null;
+            }
+        }
     }
 }

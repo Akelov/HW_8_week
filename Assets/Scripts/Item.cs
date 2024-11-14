@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public abstract class Item : MonoBehaviour
 {
     /*
     Это все в абстрактном класск
@@ -12,10 +12,8 @@ public class Item : MonoBehaviour
     - abstract/override - Предмет отрабатывает свой эффект - каждый предмет отрабатывает свой эффект
     - abstract/override - Оставляет после себя какой-то партикл (можно сделать самому или взять бесплатные варианты с ассет стора) - каждый предмет вызывает свой партикл
      */
-    
-
-    private void OnCollisionEnter(Collision collision)
+    public virtual void Use(GameObject gameObject)
     {
-        Ghost ghost = GetComponent<Ghost>();
+
     }
 }
