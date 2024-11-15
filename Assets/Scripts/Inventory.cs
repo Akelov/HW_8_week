@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory
 {
+    private Transform _itemHolderPoint;
     private Item _item;
 
-    private bool HasItem() => _item != null;
+    public Inventory(Transform itemHolderPoint) => _itemHolderPoint = itemHolderPoint;
+
+    public bool HasItem() => _item != null;
 
     public Item GetItem() // забрали item
     {
@@ -15,6 +18,7 @@ public class Inventory : MonoBehaviour
         }
         Item selectItem = _item;
         _item = null;
+        _item.transform.SetParent(null);
         return selectItem;
     }
 
@@ -27,5 +31,7 @@ public class Inventory : MonoBehaviour
 
         }
         _item = item;
+        _item.transform.SetParent(_itemHolderPoint);
+        _item.transform.localPosition = Vector3.zero;
     }   
 }

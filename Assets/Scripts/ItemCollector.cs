@@ -2,33 +2,24 @@ using UnityEngine;
 
 public class ItemCollector : MonoBehaviour
 {
-    private Item _item;
-    [SerializeField] private Transform _itemHolderPoint;
+    private Inventory _inventory;
+
+    public void Initialize(Inventory inventory) => _inventory = inventory;
 
     private void OnTriggerEnter(Collider other)
     { 
         Item item = other.GetComponent<Item>();
-        if(item != null)
+
+        if (item == null)
         {
-            if(_item == null && item.CanPickUp(gameObject))
-            {
-                _item = item;
-                _item.transform.SetParent(_itemHolderPoint);
-                _item.transform.localPosition = Vector3.zero;
-            }
+            return;
+        }
+
+        if(CanPickupItem(item))
+        {
+            _inventory.PutItem(item);
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if(_item != null)
-            {
-                _item.Use(gameObject);
-                Destroy(_item);
-                _item = null;
-            }
-        }
-    }
+    private bool CanPickupItem(Item item) => _inventory.HasItem() == false && item.CanPickUp(gameObject);
 }
