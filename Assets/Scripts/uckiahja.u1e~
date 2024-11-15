@@ -1,0 +1,15 @@
+using UnityEngine;
+
+public class Inventory : MonoBehaviour
+{
+    private Item _item;
+
+    private bool HasItem() => _item != null;
+
+    public Item GetItem() // забрали item
+    {
+        Item selectItem = _item;
+        _item = null;
+        return selectItem;
+    }
+}

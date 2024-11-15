@@ -12,7 +12,9 @@ public abstract class Item : MonoBehaviour
     - abstract/override - Предмет отрабатывает свой эффект - каждый предмет отрабатывает свой эффект
     - abstract/override - Оставляет после себя какой-то партикл (можно сделать самому или взять бесплатные варианты с ассет стора) - каждый предмет вызывает свой партикл
      */
-    public virtual void Use(GameObject gameObject)
+    public abstract bool CanPickUp(GameObject owner);
+
+    public virtual void Use(GameObject owner)
     {
 
     }

@@ -10,7 +10,7 @@ public class ItemCollector : MonoBehaviour
         Item item = other.GetComponent<Item>();
         if(item != null)
         {
-            if(_item == null)
+            if(_item == null && item.CanPickUp(gameObject))
             {
                 _item = item;
                 _item.transform.SetParent(_itemHolderPoint);
@@ -25,6 +25,7 @@ public class ItemCollector : MonoBehaviour
         {
             if(_item != null)
             {
+                _item.Use(gameObject);
                 Destroy(_item);
                 _item = null;
             }
