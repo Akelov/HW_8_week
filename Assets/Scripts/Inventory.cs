@@ -9,17 +9,18 @@ public class Inventory
 
     public bool HasItem() => _item != null;
 
-    public Item GetItem() // забрали item
+    public Item GetItem()
     {
         if (HasItem() == false)
         {
             Debug.LogError("Нет предмета!");
             return null;
         }
-        Item selectItem = _item;
-        _item = null;
+
         _item.transform.SetParent(null);
-        return selectItem;
+        Item selectedItem = _item;
+        _item = null;
+        return selectedItem;
     }
 
     public void PutItem(Item item)
@@ -28,7 +29,6 @@ public class Inventory
         {
             Debug.LogError("Уже есть предмет.");
             return;
-
         }
         _item = item;
         _item.transform.SetParent(_itemHolderPoint);

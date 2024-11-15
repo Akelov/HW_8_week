@@ -16,8 +16,7 @@ public class ShootItem : Item
 
         Transform shootPointMarkerPosition = owner.GetComponentInChildren<ShootPointMarker>().transform;
 
-        Bullet bullet = Instantiate(_bulletPrefab, shootPointMarkerPosition.position, Quaternion.identity, null);;
-        Debug.Log(shootPointMarkerPosition.forward);
+        Bullet bullet = Instantiate(_bulletPrefab, shootPointMarkerPosition.position, Quaternion.identity, null);
 
         if (bullet == null)
             Debug.LogError("Bullet is null");

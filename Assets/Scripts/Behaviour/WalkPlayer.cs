@@ -1,7 +1,7 @@
 using UnityEngine;
 
-//класс описывающий логику хождения игрока, то есть логику управления сущщностью
-public class WalkPlayer : MonoBehaviour, IMovementBehaviour
+
+public class WalkPlayer : MonoBehaviour
 {
     private CharacterController _characterController;
     private float _speed;

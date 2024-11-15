@@ -32,7 +32,6 @@ public class Health
             if (value < 0)
             {
                 _currentHealth = 0;
-                Debug.LogError("¬ свойство CurrentHealth передаетс€ значение меньше 0");
             }
             else
             {
