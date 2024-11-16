@@ -10,7 +10,6 @@ public class Ghost : MonoBehaviour
     [SerializeField] private Transform _itemHolderPoint;
     private ItemHandler _itemHandler;
 
-    [SerializeField] private float _speed;
     [SerializeField] private int _healthValue;
 
     private void Awake()
@@ -25,6 +24,13 @@ public class Ghost : MonoBehaviour
     {
         Debug.Log($"Çהמנמגüו: {_health.CurrentHealth}");
 
+        DownKeyF();
+
+        _walkPlayer.Move();
+    }
+
+    private void DownKeyF()
+    {
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (_itemHandler.CanUseItem())
@@ -32,14 +38,12 @@ public class Ghost : MonoBehaviour
                 _itemHandler.UseItem();
             }
         }
-
-        _walkPlayer.Move();
     }
 
     private void SetComponents()
     {
         Inventory inventory = new Inventory(_itemHolderPoint);
-        _walkPlayer = gameObject.AddComponent<WalkPlayer>();
+        _walkPlayer = GetComponent<WalkPlayer>();
         _health = new Health(_healthValue);
         _itemCollector.Initialize(inventory);
         _itemHandler = new ItemHandler(inventory, gameObject);
@@ -55,7 +59,6 @@ public class Ghost : MonoBehaviour
 
     private void SetValues()
     {
-        _walkPlayer.Speed = _speed;
         _walkPlayer.DeadZone = DeadZone;
     }
 }

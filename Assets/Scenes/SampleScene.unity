@@ -869,7 +869,6 @@ MonoBehaviour:
   _walkPlayer: {fileID: 931468869}
   _itemCollector: {fileID: 931468865}
   _itemHolderPoint: {fileID: 2024444870}
-  _speed: 10
   _healthValue: 100
 --- !u!114 &931468865
 MonoBehaviour:
@@ -922,6 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d42a170248a7104d91780fc3274eb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 10
 --- !u!1001 &1568243201
 PrefabInstance:
   m_ObjectHideFlags: 0

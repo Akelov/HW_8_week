@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class WalkPlayer : MonoBehaviour
 {
+    [SerializeField] private float _speed;
     private CharacterController _characterController;
-    private float _speed;
     private float _deadZone;
 
     public float DeadZone 

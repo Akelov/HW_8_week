@@ -1,4 +1,3 @@
-using System.Data.Common;
 using UnityEngine;
 
 public class ShootItem : Item
@@ -22,6 +21,5 @@ public class ShootItem : Item
             Debug.LogError("Bullet is null");
         else
             bullet.Launch(shootPointMarkerPosition.forward);
-
     }
 }

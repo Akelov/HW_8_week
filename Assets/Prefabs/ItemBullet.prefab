@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _force: 100
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: -734126987491382995}
 --- !u!54 &-734126987491382995
 Rigidbody:
   m_ObjectHideFlags: 0

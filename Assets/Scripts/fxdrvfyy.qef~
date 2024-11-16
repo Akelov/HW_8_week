@@ -1,0 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpeedBoostItem : Item
+{
+    public override bool CanPickUp(GameObject owner)
+    {
+        throw new System.NotImplementedException();
+    }
+}
