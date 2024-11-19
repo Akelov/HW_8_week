@@ -377,7 +377,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _itemPrefab
       value: 
-      objectReference: {fileID: 7778515084206229354, guid: a7445fe792dfb634193def039e2ede3b,
+      objectReference: {fileID: 7778515084206229354, guid: 8360468a3e005b546b2f6289a11601b2,
         type: 3}
     - target: {fileID: 5546758555311421852, guid: d58b01d2be9ba234aac6d3d23dee5c77,
         type: 3}
@@ -451,7 +451,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _itemPrefab
       value: 
-      objectReference: {fileID: 778912580769094513, guid: 3405369e42bb2b4479c9d192fd17c7fc,
+      objectReference: {fileID: 778912580769094513, guid: 0e7963737b9d90a4b90c7e56f9641db8,
         type: 3}
     - target: {fileID: 5546758555311421852, guid: d58b01d2be9ba234aac6d3d23dee5c77,
         type: 3}
@@ -739,6 +739,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 931468872}
+    - targetCorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 931468869}
     - targetCorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b,
         type: 3}
@@ -866,6 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1ae37e5b8bbd24aada52a250630bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 0}
   _walkPlayer: {fileID: 931468869}
   _itemCollector: {fileID: 931468865}
   _itemHolderPoint: {fileID: 2024444870}
@@ -922,6 +927,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
+--- !u!114 &931468872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931468854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f76348da480f3e4b9deeb2b7ccd0c41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1568243201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1039,7 +1056,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _itemPrefab
       value: 
-      objectReference: {fileID: 778912580769094513, guid: 3405369e42bb2b4479c9d192fd17c7fc,
+      objectReference: {fileID: 778912580769094513, guid: 0e7963737b9d90a4b90c7e56f9641db8,
         type: 3}
     - target: {fileID: 5546758555311421852, guid: d58b01d2be9ba234aac6d3d23dee5c77,
         type: 3}

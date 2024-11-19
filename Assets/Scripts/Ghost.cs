@@ -44,7 +44,7 @@ public class Ghost : MonoBehaviour
     {
         Inventory inventory = new Inventory(_itemHolderPoint);
         _walkPlayer = GetComponent<WalkPlayer>();
-        _health = new Health(_healthValue);
+        _health = GetComponent<Health>();
         _itemCollector.Initialize(inventory);
         _itemHandler = new ItemHandler(inventory, gameObject);
     }
@@ -60,5 +60,6 @@ public class Ghost : MonoBehaviour
     private void SetValues()
     {
         _walkPlayer.DeadZone = DeadZone;
+        _health.Initialize(_healthValue);
     }
 }

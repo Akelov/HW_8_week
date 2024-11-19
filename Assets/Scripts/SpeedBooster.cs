@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class SpeedBooster : MonoBehaviour
 {
-    [SerializeField] private float _speetBoostValue = 10f;
-    [SerializeField] private GameObject _gameObject;
+    [SerializeField] private float _speedBoostValue;
 
-    private void IncreaseSpeed()
+    public void IncreaseSpeed(GameObject owner)
     {
-        WalkPlayer walkPlayer = _gameObject.GetComponent<WalkPlayer>();
+        WalkPlayer walkPlayer = owner.GetComponent<WalkPlayer>();
+
         if (walkPlayer == null)
         {
             Debug.LogError($"WalkPlayer is null - {GetType().Name}");
             return;
         }
 
-        walkPlayer.Speed += _speetBoostValue;
+        walkPlayer.Speed += _speedBoostValue;
     }
 }

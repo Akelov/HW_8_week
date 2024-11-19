@@ -1,26 +1,27 @@
 using UnityEngine;
 
-public class Health 
+public class Health : MonoBehaviour
 {
     private int _valueHealth;
     private int _currentHealth;
 
-    public Health(int valueHealth)
+    public void Initialize(int valueHealth)
     {
-        ValueHealth = valueHealth;
-        CurrentHealth = valueHealth;
+        CurrentHealth = ValueHealth = valueHealth;
     }
 
     public int ValueHealth
     {
         get => _valueHealth;
-        set
+        private set
         {
             if (value <= 0)
             {
                 Debug.LogError($"В свойство ValueHealt, в классе {GetType().Name} задается значние меньше либо равно 0");
+                return;
             }
-            else _valueHealth = value;
+            
+            _valueHealth = value;
         }
     }
 
@@ -36,9 +37,6 @@ public class Health
             else
             {
                 _currentHealth += value;
-
-                if(_currentHealth > _valueHealth)  
-                    _currentHealth = _valueHealth;
             }
         }
     }
