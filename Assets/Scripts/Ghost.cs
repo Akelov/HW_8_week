@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour, IHealthRestorer
 {
-    // дать возможность пополнять здоровье игроку - это отдельное поведение - то есть отдельный класс
     private float DeadZone = 0.1f;
     [SerializeField] private Health _health;
     [SerializeField] private WalkPlayer _walkPlayer;

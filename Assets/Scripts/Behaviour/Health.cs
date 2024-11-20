@@ -36,7 +36,7 @@ public class Health : MonoBehaviour
             }
             else
             {
-                _currentHealth += value;
+                _currentHealth = value;
             }
         }
     }

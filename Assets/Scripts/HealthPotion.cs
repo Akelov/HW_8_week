@@ -6,14 +6,15 @@ public class HealthPotion : MonoBehaviour
 
     public void IncreaseHealth(GameObject owner)
     {
-        Health health = owner.GetComponent<Health>();
-        
-        if(health == null)
+        IHealthRestorer healthRestorer = owner.GetComponent<IHealthRestorer>();
+        if (healthRestorer != null)
         {
-            Debug.LogError($"Health is null - {GetType().Name}");
+            healthRestorer.RestoreHealth(_boostValue);
+        }
+        else
+        {
+            Debug.LogError($"HealthRestorer is null - {GetType().Name}");
             return;
         }
-
-        health.CurrentHealth += _boostValue;
     }
 }
