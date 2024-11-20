@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int _valueHealth;
+    private int _maxHealth;
     private int _currentHealth;
 
     public void Initialize(int valueHealth)
@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
 
     public int ValueHealth
     {
-        get => _valueHealth;
+        get => _maxHealth;
         private set
         {
             if (value <= 0)
@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
                 return;
             }
             
-            _valueHealth = value;
+            _maxHealth = value;
         }
     }
 
